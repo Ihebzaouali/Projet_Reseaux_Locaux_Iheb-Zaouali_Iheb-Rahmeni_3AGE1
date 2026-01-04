@@ -27,7 +27,10 @@ cd \Users\ihebz\Desktop\mosquitto> mosquitto_pub -h 192.168.0.135 -t "/ihebz" -m
 
 ----- Affichage du valeurs des topics : s
 Terminal : (cmd en tant qu'administrateur)
-cd \Users\ihebz\Desktop\mosquitto>
+cd \Users\ihebz\Desktop\mosquitto> mosquitto_sub -h 192.168.0.135 -t "#" -v -u iheb -P zapatista00 (afficher tous les topics)
+
+ou utilisez : 
+
 mosquitto_sub -h 192.168.0.135 -t "/temperature" -t "/Humidite" -t "/Pression" -t "/Accelero_X" -t "/Accelero_Y" -t "/Accelero_Z" -t "/Gyro_X" -t "/Gyro_Y" -t "/Gyro_Z" -t "/Magneto_X" -t "/Magneto_Y" -t "/Magneto_Z" -u iheb -P zapatista00  (Si Broker locale : 192.168.0.135 (adresse ip WIFI))
 
 mosquitto_sub -h "broker.hivemq.com" -t "/temperature" -t "/Humidite" -t "/Pression" -t "/Accelero_X" -t "/Accelero_Y" -t "/Accelero_Z" -t "/Gyro_X" -t "/Gyro_Y" -t "/Gyro_Z" -t "/Magneto_X" -t "/Magneto_Y" -t "/Magneto_Z"  (Si Broker Public : broker.hivemq.com/test.mosquitto.org) 
