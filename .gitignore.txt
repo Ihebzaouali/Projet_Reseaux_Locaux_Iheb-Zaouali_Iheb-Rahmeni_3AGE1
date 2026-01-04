@@ -1,0 +1,28 @@
+# Credentials
+config.h
+.pem
+.key
+
+# Arduino
+.hex
+.bin
+.elf
+
+# Node-RED
+flows_cred.json
+.config.json
+
+# MongoDB
+.bson
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Node.js
+node_modules
+npm-debug.log
+
+# IDE
+.vscode
+.idea

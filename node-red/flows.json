@@ -1,0 +1,2261 @@
+[
+    {
+        "id": "0b066c7896265988",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "983c8ee3d8aa3535",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c31ecca0b0d1cf56",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d50eb0833ae366b",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.0.135",
+        "port": "1883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "main_tab",
+        "type": "ui_tab",
+        "name": "Weather ",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "charts_group",
+        "type": "ui_group",
+        "name": "Pression[mBar]",
+        "tab": "main_tab",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "939670a2b08f6543",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "main_tab_local",
+        "type": "ui_tab",
+        "name": "My Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "sensors_group_local",
+        "type": "ui_group",
+        "name": "Humidité[%]",
+        "tab": "main_tab",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c9994751e1661ced",
+        "type": "ui_tab",
+        "name": "Capteurs inertiels",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4eea78c8f39d05e4",
+        "type": "ui_group",
+        "name": "Température[°C]",
+        "tab": "main_tab",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a23991bdb1a6f723",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "main_tab_local",
+        "order": 4,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e6e04c6fc8550fca",
+        "type": "ui_group",
+        "name": "Pression",
+        "tab": "main_tab_local",
+        "order": 5,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "082e735a8ec6a444",
+        "type": "ui_group",
+        "name": "STM B-L475E-IOT01A2",
+        "tab": "main_tab",
+        "order": 6,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e6c3d9a5a4574342",
+        "type": "ui_group",
+        "name": "Etablissement",
+        "tab": "main_tab",
+        "order": 7,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "sensors_group",
+        "type": "ui_group",
+        "name": "Température(°C)",
+        "tab": "main_tab_local",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "charts_group_local",
+        "type": "ui_group",
+        "name": "Acceleration",
+        "tab": "c9994751e1661ced",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c36169b2ce65b86f",
+        "type": "ui_group",
+        "name": "Gyroscope",
+        "tab": "c9994751e1661ced",
+        "order": 5,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1dadec50dd859c08",
+        "type": "ui_group",
+        "name": "Magnetomètre",
+        "tab": "c9994751e1661ced",
+        "order": 3,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b18879a3f348f813",
+        "type": "ui_group",
+        "name": "Concepteurs",
+        "tab": "main_tab",
+        "order": 6,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6fb2f5f7c7ddcd52",
+        "type": "mongodb3",
+        "uri": "mongodb+srv://RL_db_user:Zapa'Paza00@cluster0.frwzajm.mongodb.net/?appName=Cluster0",
+        "name": "",
+        "options": "",
+        "parallelism": -1
+    },
+    {
+        "id": "086be57ba13b97c8",
+        "type": "inject",
+        "z": "0b066c7896265988",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 540,
+        "wires": [
+            [
+                "b793b51f5c95f282"
+            ]
+        ]
+    },
+    {
+        "id": "b793b51f5c95f282",
+        "type": "function",
+        "z": "0b066c7896265988",
+        "name": "   ",
+        "func": "var timestamp = new Date().toISOString();\nmsg.payload = {\n    message: \"Serveur OK\",\n    timestamp: timestamp,\n    status: \"connected\"\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [
+                "35a523c33d2d3bbf"
+            ]
+        ]
+    },
+    {
+        "id": "35a523c33d2d3bbf",
+        "type": "mqtt out",
+        "z": "0b066c7896265988",
+        "name": "/ihebz",
+        "topic": "/ihebz",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "6d50eb0833ae366b",
+        "x": 930,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "0fdc02fe1b703f2c",
+        "type": "mqtt in",
+        "z": "0b066c7896265988",
+        "name": "Humidité",
+        "topic": "/Humidite",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 200,
+        "wires": [
+            [
+                "6de040220786e710",
+                "51230f489f920a54"
+            ]
+        ]
+    },
+    {
+        "id": "eea8bbcd053c28b7",
+        "type": "mqtt in",
+        "z": "0b066c7896265988",
+        "name": "Pression",
+        "topic": "/Pression",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "cf6970e103ac4763",
+                "c2935314ee3e4042"
+            ]
+        ]
+    },
+    {
+        "id": "eef36bce1f437b2d",
+        "type": "mqtt in",
+        "z": "0b066c7896265988",
+        "name": "Temperature",
+        "topic": "/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "6de2fbf23ec67030",
+                "7d6ce69aeec2c9d8"
+            ]
+        ]
+    },
+    {
+        "id": "6de2fbf23ec67030",
+        "type": "ui_gauge",
+        "z": "0b066c7896265988",
+        "name": "Température",
+        "group": "4eea78c8f39d05e4",
+        "order": 1,
+        "width": "9",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Température",
+        "label": "Degré Celsius",
+        "format": "{{value}}°C",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#d8db00",
+            "#e2e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6de040220786e710",
+        "type": "ui_gauge",
+        "z": "0b066c7896265988",
+        "name": "Humidité",
+        "group": "sensors_group_local",
+        "order": 2,
+        "width": "9",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Humidité",
+        "label": "SI",
+        "format": "{{value}}%",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#c83acb",
+            "#9058d5",
+            "#6b00b3"
+        ],
+        "seg1": "30",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "cf6970e103ac4763",
+        "type": "ui_gauge",
+        "z": "0b066c7896265988",
+        "name": "Pression",
+        "group": "charts_group",
+        "order": 3,
+        "width": "9",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Pression",
+        "label": "mBar",
+        "format": "{{value}}",
+        "min": "950",
+        "max": "1050",
+        "colors": [
+            "#00b500",
+            "#8a0000",
+            "#ca3838"
+        ],
+        "seg1": "980",
+        "seg2": "1020",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9ae8474226624c05",
+        "type": "debug",
+        "z": "0b066c7896265988",
+        "name": "Debug Temp",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "326cad7c8836566a",
+        "type": "debug",
+        "z": "0b066c7896265988",
+        "name": "Debug Press",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d75d3450280e8974",
+        "type": "ui_media",
+        "z": "0b066c7896265988",
+        "group": "082e735a8ec6a444",
+        "name": "B-L475E-IOT01A2",
+        "width": "10",
+        "height": "6",
+        "order": 0,
+        "category": "B-L475E-IOT01A2",
+        "file": "4-removebg-preview.png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "muted": true,
+        "scope": "local",
+        "tooltip": "",
+        "x": 330,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0fc213a4de0ae88c",
+        "type": "ui_media",
+        "z": "0b066c7896265988",
+        "group": "e6c3d9a5a4574342",
+        "name": "Etablissement",
+        "width": "10",
+        "height": "6",
+        "order": 0,
+        "category": "Etablissement",
+        "file": "Copy of Iheb Zaouali (3).png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "muted": true,
+        "scope": "local",
+        "tooltip": "",
+        "x": 800,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b6745023af9b50b0",
+        "type": "debug",
+        "z": "0b066c7896265988",
+        "name": "Debug Humid",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3d96141d614a9a1f",
+        "type": "ui_media",
+        "z": "0b066c7896265988",
+        "group": "b18879a3f348f813",
+        "name": "Concepteurs",
+        "width": "10",
+        "height": "6",
+        "order": 0,
+        "category": "iheb",
+        "file": "Iheb Zaouali & Iheb Rahmeni.png",
+        "layout": "adjust",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "muted": true,
+        "scope": "local",
+        "tooltip": "",
+        "x": 570,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b6d79d1be3e98b1",
+        "type": "mongodb3 in",
+        "z": "0b066c7896265988",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "b6745023af9b50b0"
+            ]
+        ]
+    },
+    {
+        "id": "27b23b0dfc802f7b",
+        "type": "mongodb3 in",
+        "z": "0b066c7896265988",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "326cad7c8836566a"
+            ]
+        ]
+    },
+    {
+        "id": "b6bdf0e94ddcc3a7",
+        "type": "mongodb3 in",
+        "z": "0b066c7896265988",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 600,
+        "y": 440,
+        "wires": [
+            [
+                "51c6775de79c1809"
+            ]
+        ]
+    },
+    {
+        "id": "da4cea1a13b248fb",
+        "type": "inject",
+        "z": "0b066c7896265988",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"name\":\"IhebZaouali&IhebRahmeni\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 440,
+        "wires": [
+            [
+                "b6bdf0e94ddcc3a7"
+            ]
+        ]
+    },
+    {
+        "id": "51c6775de79c1809",
+        "type": "debug",
+        "z": "0b066c7896265988",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2b8a9e0c31f28513",
+        "type": "mongodb3 in",
+        "z": "0b066c7896265988",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 720,
+        "y": 60,
+        "wires": [
+            [
+                "9ae8474226624c05"
+            ]
+        ]
+    },
+    {
+        "id": "7d6ce69aeec2c9d8",
+        "type": "function",
+        "z": "0b066c7896265988",
+        "name": "function 1",
+        "func": "msg.payload = {\n    sensor: \"Temperature\",\n    value: msg.payload,\n    timestamp: new Date(),\n    unit: \"°C\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 60,
+        "wires": [
+            [
+                "2b8a9e0c31f28513"
+            ]
+        ]
+    },
+    {
+        "id": "51230f489f920a54",
+        "type": "function",
+        "z": "0b066c7896265988",
+        "name": "function 2",
+        "func": "msg.payload = {\n    sensor: \"Humidity\",\n    value: msg.payload,\n    timestamp: new Date(),\n    unit: \"%\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "5b6d79d1be3e98b1"
+            ]
+        ]
+    },
+    {
+        "id": "c2935314ee3e4042",
+        "type": "function",
+        "z": "0b066c7896265988",
+        "name": "function 3",
+        "func": "msg.payload = {\n    sensor: \"Pressure\",\n    value: msg.payload,\n    timestamp: new Date(),\n    unit: \"mBar\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "27b23b0dfc802f7b"
+            ]
+        ]
+    },
+    {
+        "id": "a099721820571ae6",
+        "type": "mqtt in",
+        "z": "983c8ee3d8aa3535",
+        "name": "Humidité",
+        "topic": "/Humidite",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "065cd0c17984a7dd",
+                "50f8137cd21b1dd3",
+                "b1e2f5aab558d49c"
+            ]
+        ]
+    },
+    {
+        "id": "a44ba7ddf8cd3cbe",
+        "type": "mqtt in",
+        "z": "983c8ee3d8aa3535",
+        "name": "Pression",
+        "topic": "/Pression",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "9986d143970bbae8",
+                "93da6c8cb8285a82",
+                "436f9dded758dbcc"
+            ]
+        ]
+    },
+    {
+        "id": "261284ee42d8b4ca",
+        "type": "mqtt in",
+        "z": "983c8ee3d8aa3535",
+        "name": "Temperature",
+        "topic": "/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "b1ecabc6c19fe4d8",
+                "8b63e573ac4d9c68",
+                "b1bc4cdcc7d6638d"
+            ]
+        ]
+    },
+    {
+        "id": "b1ecabc6c19fe4d8",
+        "type": "ui_gauge",
+        "z": "983c8ee3d8aa3535",
+        "name": "Température",
+        "group": "sensors_group",
+        "order": 1,
+        "width": "10",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Température",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#cbdc00",
+            "#e1ff00",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "35",
+        "diff": false,
+        "className": "",
+        "x": 850,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "065cd0c17984a7dd",
+        "type": "ui_gauge",
+        "z": "983c8ee3d8aa3535",
+        "name": "Humidité",
+        "group": "a23991bdb1a6f723",
+        "order": 2,
+        "width": "10",
+        "height": "5",
+        "gtype": "wave",
+        "title": "Humidité",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "30",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 880,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9986d143970bbae8",
+        "type": "ui_gauge",
+        "z": "983c8ee3d8aa3535",
+        "name": "Pression",
+        "group": "e6e04c6fc8550fca",
+        "order": 3,
+        "width": "10",
+        "height": "5",
+        "gtype": "compass",
+        "title": "Pression",
+        "label": "mBar",
+        "format": "{{value}}",
+        "min": "950",
+        "max": "1050",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "980",
+        "seg2": "1020",
+        "diff": false,
+        "className": "",
+        "x": 880,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8b63e573ac4d9c68",
+        "type": "ui_chart",
+        "z": "983c8ee3d8aa3535",
+        "name": "Graphique Température",
+        "group": "sensors_group",
+        "order": 1,
+        "width": "10",
+        "height": "7",
+        "label": "Température (°C)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Aucune donnée",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1e5fbe",
+            "#b3beea",
+            "#ff7f0e",
+            "#a0342c",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50f8137cd21b1dd3",
+        "type": "ui_chart",
+        "z": "983c8ee3d8aa3535",
+        "name": "Graphique Humidité",
+        "group": "a23991bdb1a6f723",
+        "order": 2,
+        "width": "10",
+        "height": "7",
+        "label": "Humidité (%)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Aucune donnée",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1e5fbe",
+            "#8ba0df",
+            "#ff7f0e",
+            "#2ca02c",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93da6c8cb8285a82",
+        "type": "ui_chart",
+        "z": "983c8ee3d8aa3535",
+        "name": "Graphique Pression",
+        "group": "e6e04c6fc8550fca",
+        "order": 3,
+        "width": "10",
+        "height": "7",
+        "label": "Pression (mBar)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Aucune donnée",
+        "dot": false,
+        "ymin": "950",
+        "ymax": "1050",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1e5fbe",
+            "#7a95ff",
+            "#2ca02c",
+            "#98df8a",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1bc4cdcc7d6638d",
+        "type": "debug",
+        "z": "983c8ee3d8aa3535",
+        "name": "Debug Temp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b1e2f5aab558d49c",
+        "type": "debug",
+        "z": "983c8ee3d8aa3535",
+        "name": "Debug Humid",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "436f9dded758dbcc",
+        "type": "debug",
+        "z": "983c8ee3d8aa3535",
+        "name": "Debug Press",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "49f32aca104a6166",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "ACCELERO_X",
+        "topic": "/Accelero_X",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "0b6f7632f197b707",
+                "3f7dd11ee09e931e"
+            ]
+        ]
+    },
+    {
+        "id": "56daea26d6a40667",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug ACCELERO_X",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "dac6a9c8841c64b7",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "ACCELERO_Y",
+        "topic": "/Accelero_Y",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 200,
+        "wires": [
+            [
+                "10bd3fb12796ca39",
+                "1d92c0d02959d961"
+            ]
+        ]
+    },
+    {
+        "id": "690c713aa3913770",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "ACCELERO_Z",
+        "topic": "/Accelero_Z",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "d5dee54f369ec84e",
+                "1f44e42de8879bb6"
+            ]
+        ]
+    },
+    {
+        "id": "1173a0cb395ad240",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug ACCELERO_Y",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "24fb302b66f84b9c",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug ACCELERO_Z",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "10bd3fb12796ca39",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Accelero_Y",
+        "group": "charts_group_local",
+        "order": 1,
+        "width": "10",
+        "height": "4",
+        "label": "Acceleration_Y",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-1000",
+        "ymax": "1000",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d5dee54f369ec84e",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Accelero_Z",
+        "group": "charts_group_local",
+        "order": 2,
+        "width": "10",
+        "height": "4",
+        "label": "Acceleration_Z",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "700",
+        "ymax": "1100",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90631fa4cca366fc",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "GYRO_X",
+        "topic": "/Gyro_X",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 1040,
+        "wires": [
+            [
+                "d6753a227bdebff2",
+                "b647f3d896ea4caf"
+            ]
+        ]
+    },
+    {
+        "id": "e066943e39c87faf",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug GYRO_X",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "0b6f7632f197b707",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Accelero_X",
+        "group": "charts_group_local",
+        "order": 1,
+        "width": "10",
+        "height": "4",
+        "label": "Acceleration_X",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-600",
+        "ymax": "600",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6753a227bdebff2",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Gyro_X",
+        "group": "c36169b2ce65b86f",
+        "order": 0,
+        "width": "10",
+        "height": "4",
+        "label": "Gyroscope_X",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "--50000",
+        "ymax": "1500",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5885c1b54145faf3",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "GYRO_Y",
+        "topic": "/Gyro_Y",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 1180,
+        "wires": [
+            [
+                "4775fd69086578eb",
+                "86a557b8780e2da8"
+            ]
+        ]
+    },
+    {
+        "id": "4b16d60a5afc64d0",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug GYRO_Y",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "4775fd69086578eb",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Gyro_Y",
+        "group": "c36169b2ce65b86f",
+        "order": 1,
+        "width": "10",
+        "height": "4",
+        "label": "Gyroscope_Y",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-2000",
+        "ymax": "2000",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1e23b3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92225726d53f81cc",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "GYRO_Z",
+        "topic": "/Gyro_Z",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 1320,
+        "wires": [
+            [
+                "7f9c23bbd62dae25",
+                "06815be026ef99bf"
+            ]
+        ]
+    },
+    {
+        "id": "7f9c23bbd62dae25",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Gyro_Z",
+        "group": "c36169b2ce65b86f",
+        "order": 2,
+        "width": "10",
+        "height": "4",
+        "label": "Gyroscope_Z",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "2000",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#301eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 1340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c647152bdd90748",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug GYRO_Z",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "32984885a09542d2",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "MAGNETO_X",
+        "topic": "/Magneto_X",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "ae4f73236100f5ac",
+                "73b04942696d6fab"
+            ]
+        ]
+    },
+    {
+        "id": "c812eaf145f88047",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "MAGNETO_Y",
+        "topic": "/Magneto_Y",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 660,
+        "wires": [
+            [
+                "cfcfdc7cdefc43b6",
+                "e1290128941b13f8"
+            ]
+        ]
+    },
+    {
+        "id": "4b82ce542eae2647",
+        "type": "mqtt in",
+        "z": "c31ecca0b0d1cf56",
+        "name": "MAGNETO_Z",
+        "topic": "/Magneto_Z",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "6d50eb0833ae366b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 800,
+        "wires": [
+            [
+                "a6a89356f07e3e5e",
+                "247561a1855a7983"
+            ]
+        ]
+    },
+    {
+        "id": "c4430e7bd6489127",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug MAGNETO_X",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "dc39d0267d5fc141",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug MAGNETO_Y",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c38933b49fd4fe60",
+        "type": "debug",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Debug MAGNETO_Z",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ae4f73236100f5ac",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Magneto_X",
+        "group": "1dadec50dd859c08",
+        "order": 0,
+        "width": "10",
+        "height": "4",
+        "label": "Magnetomètre_X",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-200",
+        "ymax": "200",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfcfdc7cdefc43b6",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Magneto_Y",
+        "group": "1dadec50dd859c08",
+        "order": 1,
+        "width": "10",
+        "height": "4",
+        "label": "Magnetomètre_Y",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-450",
+        "ymax": "450",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a6a89356f07e3e5e",
+        "type": "ui_chart",
+        "z": "c31ecca0b0d1cf56",
+        "name": "Graphique Magneto_Z",
+        "group": "1dadec50dd859c08",
+        "order": 2,
+        "width": "10",
+        "height": "4",
+        "label": "Magnetomètre_Z",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1200",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#211eb3",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ee774e340d62929",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 60,
+        "wires": [
+            [
+                "56daea26d6a40667"
+            ]
+        ]
+    },
+    {
+        "id": "f17bbd7323edf912",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "1173a0cb395ad240"
+            ]
+        ]
+    },
+    {
+        "id": "284adf46d92840ba",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 300,
+        "wires": [
+            [
+                "24fb302b66f84b9c"
+            ]
+        ]
+    },
+    {
+        "id": "ae766c8bb1d9d5e4",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 500,
+        "wires": [
+            [
+                "c4430e7bd6489127"
+            ]
+        ]
+    },
+    {
+        "id": "0d71fc6457eb356a",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 640,
+        "wires": [
+            [
+                "dc39d0267d5fc141"
+            ]
+        ]
+    },
+    {
+        "id": "6bf69d5a8fb95e0c",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 780,
+        "wires": [
+            [
+                "c38933b49fd4fe60"
+            ]
+        ]
+    },
+    {
+        "id": "b848a803827966d4",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 1020,
+        "wires": [
+            [
+                "e066943e39c87faf"
+            ]
+        ]
+    },
+    {
+        "id": "bf2686b83f6134dc",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 1160,
+        "wires": [
+            [
+                "4b16d60a5afc64d0"
+            ]
+        ]
+    },
+    {
+        "id": "5da1305d9e694e20",
+        "type": "mongodb3 in",
+        "z": "c31ecca0b0d1cf56",
+        "service": "_ext_",
+        "configNode": "6fb2f5f7c7ddcd52",
+        "name": "mongoDB",
+        "collection": "mongodb",
+        "operation": "insert",
+        "x": 620,
+        "y": 1300,
+        "wires": [
+            [
+                "1c647152bdd90748"
+            ]
+        ]
+    },
+    {
+        "id": "3f7dd11ee09e931e",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 4",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 60,
+        "wires": [
+            [
+                "6ee774e340d62929"
+            ]
+        ]
+    },
+    {
+        "id": "1d92c0d02959d961",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 5",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "f17bbd7323edf912"
+            ]
+        ]
+    },
+    {
+        "id": "1f44e42de8879bb6",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 6",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "284adf46d92840ba"
+            ]
+        ]
+    },
+    {
+        "id": "73b04942696d6fab",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 7",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 500,
+        "wires": [
+            [
+                "ae766c8bb1d9d5e4"
+            ]
+        ]
+    },
+    {
+        "id": "e1290128941b13f8",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 8",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 640,
+        "wires": [
+            [
+                "0d71fc6457eb356a"
+            ]
+        ]
+    },
+    {
+        "id": "247561a1855a7983",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 9",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "6bf69d5a8fb95e0c"
+            ]
+        ]
+    },
+    {
+        "id": "b647f3d896ea4caf",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 10",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1020,
+        "wires": [
+            [
+                "b848a803827966d4"
+            ]
+        ]
+    },
+    {
+        "id": "86a557b8780e2da8",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 11",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1160,
+        "wires": [
+            [
+                "bf2686b83f6134dc"
+            ]
+        ]
+    },
+    {
+        "id": "06815be026ef99bf",
+        "type": "function",
+        "z": "c31ecca0b0d1cf56",
+        "name": "function 12",
+        "func": "msg.payload = {\n    sensor: msg.topic, // using msg.topic to identify sensor\n    value: msg.payload,\n    timestamp: new Date()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1300,
+        "wires": [
+            [
+                "5da1305d9e694e20"
+            ]
+        ]
+    },
+    {
+        "id": "69838cd642162700",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-mongodb3": "2.0.1",
+            "node-red-contrib-ui-media": "2.0.0"
+        }
+    }
+]
