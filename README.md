@@ -142,10 +142,11 @@ Système IoT complet de **monitoring environnemental et de détection de mouveme
 
 - **Langage** : C/C++ (Arduino), JavaScript (Node-RED)
 - **IDE** : Arduino IDE 2.x
-- **Broker MQTT** : Mosquitto 2.x
+- **Broker MQTT** : Mosquitto 2.x (Windows local
 - **Orchestration** : Node-RED 3.x
-- **Base de données** : MongoDB 6.x
+- **Base de données** : MongoDB Atlas (Cloud NoSQL)
 - **Dashboard** : Node-RED Dashboard
+- **Protocoles** : MQTT, WiFi 802.11, SPI, I2C, UART
 
 ### Bibliothèques Arduino
 
@@ -195,39 +196,247 @@ Système IoT complet de **monitoring environnemental et de détection de mouveme
 
 ## 🚀 Installation Rapide
 
-### Prérequis
+### Prérequis Windows
 
-```bash
-# Vérifier les versions
-node --version        # v18.x ou supérieur
-mongod --version      # v6.x ou supérieur
-mosquitto --version   # v2.x ou supérieur
+Vérifier que vous avez installé :
+- **Node.js** : v18.x ou supérieur → [Télécharger](https://nodejs.org/)
+- **Arduino IDE** : v2.x (ou v1.8.6+) → [Télécharger](https://www.arduino.cc/en/software)
+- **Git** (optionnel) → [Télécharger](https://git-scm.com/)
+
+Vérifier les versions dans PowerShell ou CMD :
+```powershell
+node --version    # Doit afficher v18.x.x ou supérieur
+npm --version     # Doit afficher 9.x.x ou supérieur
 ```
 
-### Installation Système
+**Note importante** : Ce projet utilise MongoDB Atlas (cloud) au lieu d'une installation locale, et Mosquitto MQTT Broker local sur Windows.
 
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install -y nodejs npm mongodb mosquitto mosquitto-clients
+---
 
-# Installer Node-RED globalement
-sudo npm install -g --unsafe-perm node-red
+### 1️⃣ Installation Mosquitto MQTT Broker (Windows)
+
+#### Prérequis - Dépendances Windows
+
+Pour Windows 7/8/10, installer d'abord les dépendances :
+
+**1. OpenSSL** (obligatoire)
+- Télécharger depuis : https://slproweb.com/products/Win32OpenSSL.html
+- Installer `Win32 OpenSSL v1.1.1` ou version supérieure
+- Les DLLs nécessaires : `libeay32.dll`, `ssleay32.dll`
+
+**2. pthreads** (obligatoire pour Windows 7/8)
+- Télécharger depuis : ftp://sources.redhat.com/pub/pthreads-win32/dll-latest/dll/x86/
+- DLL nécessaire : `pthreadVC2.dll`
+- Copier dans `C:\Program Files\mosquitto\` ou `C:\Windows\System32\`
+
+#### Télécharger et Installer Mosquitto
+
+1. **Télécharger** la version Windows depuis : https://mosquitto.org/download/
+   - Fichier recommandé : `mosquitto-1.6.x-install-windows-x64.exe` ou version plus récente
+   - Pour référence : http://www.eclipse.org/downloads/download.php?file=/mosquitto/binary/win32/mosquitto-1.4.8-install-win32.exe
+
+2. **Exécuter l'installeur** en tant qu'administrateur
+3. **Installer** dans `C:\Program Files\mosquitto\` (par défaut)
+4. **Copier les DLLs** d'OpenSSL et pthreads dans le dossier d'installation
+
+#### Configuration
+
+Créer/modifier le fichier `C:\Program Files\mosquitto\mosquitto.conf` :
+
+```conf
+# mosquitto.conf - Configuration de base
+listener 1883
+allow_anonymous true
+log_dest file C:\Program Files\mosquitto\mosquitto.log
+log_type all
 ```
 
-### Configuration Node-RED
+#### Vérifier le Service Mosquitto
 
-```bash
-# Installer les dépendances
-cd ~/.node-red
-npm install node-red-dashboard node-red-node-mongodb
+**Vérifier si le service est installé** :
+```powershell
+# Ouvrir services.msc
+Win + R → taper: services.msc → Entrée
+```
 
-# Démarrer Node-RED
+Chercher "Mosquitto Broker" dans la liste des services.
+
+#### Démarrer Mosquitto
+
+**Option 1 : Service Windows (recommandé)**
+```powershell
+# PowerShell en tant qu'administrateur
+net start mosquitto
+```
+
+**Option 2 : Ligne de commande manuelle**
+```powershell
+# PowerShell en tant qu'administrateur
+cd "C:\Program Files\mosquitto"
+mosquitto.exe -c mosquitto.conf -v
+```
+
+**Vérifier que Mosquitto écoute sur le port 1883** :
+```powershell
+netstat -an | findstr 1883
+# Doit afficher: TCP 0.0.0.0:1883 ... LISTENING
+```
+
+#### Tester la connexion MQTT
+
+**Test 1 : Subscribe/Publish local**
+
+Dans deux terminaux PowerShell différents :
+
+**Terminal 1 (Subscriber)** :
+```powershell
+cd "C:\Program Files\mosquitto"
+mosquitto_sub.exe -h localhost -t "test" -v
+```
+
+**Terminal 2 (Publisher)** :
+```powershell
+cd "C:\Program Files\mosquitto"
+mosquitto_pub.exe -h localhost -t "test" -m "Hello MQTT"
+```
+
+Vous devriez voir apparaître "Hello MQTT" dans le Terminal 1.
+
+**Test 2 : Écouter tous les topics**
+```powershell
+cd "C:\Program Files\mosquitto"
+mosquitto_sub.exe -h localhost -t "#" -v
+```
+
+Cette commande affichera tous les messages MQTT publiés sur le broker.
+
+---
+
+### 2️⃣ Installation Node-RED (Windows)
+
+#### Installation globale via npm
+
+```powershell
+npm install -g --unsafe-perm node-red
+```
+
+#### Installer les dépendances Node-RED
+
+```powershell
+# Naviguer vers le dossier .node-red
+cd %USERPROFILE%\.node-red
+
+# Installer les palettes nécessaires
+npm install node-red-dashboard
+npm install node-red-node-mongodb
+
+# OPTIONNEL : Pour Firebase (si vous souhaitez aussi tester Firebase)
+npm install node-red-contrib-firebase
+```
+
+#### Démarrer Node-RED
+
+```powershell
 node-red
 ```
 
-Accès Node-RED : http://localhost:1880  
-Accès Dashboard : http://localhost:1880/ui
+Vous devriez voir :
+```
+Welcome to Node-RED
+===================
+[info] Node-RED version: v3.x.x
+[info] Node.js  version: v18.x.x
+[info] Server now running at http://127.0.0.1:1880/
+```
+
+Accès :
+- **Node-RED Editor** : http://localhost:1880
+- **Dashboard** : http://localhost:1880/ui
+
+#### Importer les Flows du projet
+
+1. Ouvrir http://localhost:1880
+2. Menu ☰ (coin supérieur droit) → Import
+3. Sélectionner l'onglet "Clipboard"
+4. Coller le contenu de votre fichier `node-red/flows.json`
+5. Cliquer sur "Import"
+6. Positionner les flows sur l'éditeur
+7. Cliquer sur **"Deploy"** (bouton rouge en haut à droite)
+
+#### Vérifier l'installation des palettes
+
+Dans Node-RED :
+1. Menu ☰ → Manage palette
+2. Onglet "Install"
+3. Vérifier que `node-red-dashboard` et `node-red-node-mongodb` sont installés
+
+Si non installés, les rechercher et cliquer sur "Install".
+
+---
+
+### 3️⃣ Configuration MongoDB Atlas (Cloud)
+
+#### Créer un compte MongoDB Atlas
+
+1. Aller sur https://www.mongodb.com/cloud/atlas/register
+2. Créer un compte gratuit (Free Tier - M0)
+3. Créer un nouveau cluster (sélectionner la région la plus proche)
+
+#### Configuration du cluster
+
+**Étape 1 : Créer un utilisateur de base de données**
+- Database Access → Add New Database User
+- Username: `iot_user` (ou autre)
+- Password: `votre_mot_de_passe_sécurisé`
+- Database User Privileges: `Read and write to any database`
+- Add User
+
+**Étape 2 : Autoriser l'accès réseau**
+- Network Access → Add IP Address
+- Option 1 (développement) : `0.0.0.0/0` (autoriser tous les IP)
+- Option 2 (production) : Ajouter votre IP publique uniquement
+- Confirm
+
+**Étape 3 : Obtenir la chaîne de connexion**
+- Clusters → Connect → Connect your application
+- Driver: Node.js, Version: 4.1 or later
+- Copier la connection string :
+```
+mongodb+srv://iot_user:<password>@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority
+```
+
+**Étape 4 : Créer la base de données**
+- Collections → Create Database
+- Database name: `iot_sensors`
+- Collection name: `sensor_data`
+- Create
+
+#### Configuration dans Node-RED
+
+1. Double-cliquer sur un nœud **mongodb out**
+2. Cliquer sur le crayon ✏️ à côté de "Server"
+3. Remplir :
+   - **Name** : MongoDB Atlas
+   - **Host** : `cluster0.xxxxx.mongodb.net` (depuis votre connection string)
+   - **Port** : `27017`
+   - **Database** : `iot_sensors`
+   - **Topology** : ☑️ Use a replica set
+   - **Replica set name** : Vide
+   - **Use TLS** : ☑️ Coché
+4. Onglet **Security** :
+   - **Username** : `iot_user`
+   - **Password** : `votre_mot_de_passe`
+5. Update → Done
+
+#### Vérifier la connexion
+
+Dans Node-RED, déployez et vérifiez les logs. En cas d'erreur, vérifier :
+- Username/password corrects
+- IP autorisée dans Network Access
+- TLS activé
+- Connection string correcte
+
+---
 
 ### Configuration Arduino
 
@@ -496,4 +705,270 @@ Utilisation libre pour fins éducatives et de recherche.
 [![IoT](https://img.shields.io/badge/IoT-Project-green)]()
 [![STM32](https://img.shields.io/badge/STM32-L475E-orange)]()
 
+
+
+
+
+
+### 4️⃣ Configuration Arduino IDE
+
+#### Télécharger Arduino IDE
+
+1. Télécharger **Arduino IDE 2.x** (ou version 1.8.6+) depuis : https://www.arduino.cc/en/software
+2. Installer Arduino IDE pour Windows (exécutable `.exe`)
+
+#### Installer le support STM32
+
+**Étape 1 : Ajouter l'URL du gestionnaire de cartes**
+
+1. File → Preferences (ou `Ctrl + ,`)
+2. Dans "Additional Boards Manager URLs", ajouter :
+```
+https://github.com/stm32duino/BoardManagerFiles/raw/master/package_stm_index.json
+```
+3. Cliquer sur "OK"
+
+**Étape 2 : Installer le package STM32**
+
+1. Tools → Board → Boards Manager
+2. Dans la barre de recherche, taper : `STM32`
+3. Installer **"STM32 MCU based boards" by STMicroelectronics**
+4. Attendre la fin de l'installation
+
+#### Installer les bibliothèques nécessaires
+
+**Méthode 1 : Via le gestionnaire de bibliothèques (recommandé)**
+
+1. Tools → Manage Libraries (ou `Ctrl + Shift + I`)
+2. Installer les bibliothèques suivantes :
+
+| Bibliothèque | Auteur | Description |
+|--------------|--------|-------------|
+| **WiFiST** | STMicroelectronics | Driver WiFi pour STM32 |
+| **MQTT** | Joel Gaehwiler | Client MQTT |
+| **STM32duino** | STMicroelectronics | Support capteurs IoT Node |
+
+**Méthode 2 : Installation manuelle**
+
+Si les bibliothèques ne sont pas disponibles via le gestionnaire :
+
+- **WiFiST** : Incluse avec le BSP STM32
+- **MQTT (arduino-mqtt)** : https://github.com/256dpi/arduino-mqtt
+  - Télécharger le ZIP
+  - Sketch → Include Library → Add .ZIP Library
+
+#### Configurer la carte STM32L475E-IOT01A
+
+**Sélectionner la carte** :
+1. Tools → Board → STM32 boards groups → **B-L475E-IOT01A**
+
+**Configurer les paramètres** :
+- **Tools → Upload method** : STM32CubeProgrammer (SWD) ou Mass Storage
+- **Tools → Port** : COMX (sélectionner le port USB de votre STM32)
+- **Tools → USB support** : CDC (generic 'Serial' supersede U(S)ART)
+
+#### Ouvrir et Configurer le projet
+
+1. **Ouvrir le fichier** `src/stm32_mqtt_sensors.ino`
+
+2. **Modifier les credentials WiFi** :
+```cpp
+char ssid[] = "VOTRE_SSID";        // Nom de votre réseau WiFi
+char pass[] = "VOTRE_MOT_DE_PASSE"; // Mot de passe WiFi
+```
+
+3. **Modifier l'adresse du broker MQTT** :
+
+Pour trouver l'IP de votre PC Windows :
+```powershell
+ipconfig
+# Chercher "Adresse IPv4" de votre carte réseau active
+# Exemple: 192.168.1.100
+```
+
+Dans le code Arduino :
+```cpp
+// Remplacer par l'IP de votre PC où Mosquitto est installé
+client.begin("192.168.1.100", net);  // Port 1883 par défaut
+
+// Ou utiliser un broker cloud public (pour tests)
+// client.begin("broker.hivemq.com", net);
+```
+
+4. **Configuration des topics MQTT** :
+
+Les topics utilisés dans le code :
+```cpp
+client.publish("/temperature", string_MQTT);
+client.publish("/Humidite", string_MQTT);
+client.publish("/Pression", string_MQTT);
+client.publish("/Accelero_X", string_MQTT);
+// ... etc pour les 12 capteurs
+```
+
+#### Initialisation SPI et WiFi (important)
+
+Vérifier que ces lignes sont présentes au début du code :
+```cpp
+SPIClass SPI_3(PC12, PC11, PC10);
+WiFiClass WiFi(&SPI_3, PE0, PE1, PE8, PB13);
+```
+
+#### Compiler et Uploader
+
+1. **Vérifier le code** : Sketch → Verify/Compile (ou `Ctrl + R`)
+2. **Uploader** : Sketch → Upload (ou `Ctrl + U`)
+3. **Ouvrir le moniteur série** : Tools → Serial Monitor
+   - **Baud rate** : 115200
+   - Vous devriez voir les messages de connexion WiFi et MQTT
+
+#### Vérification de l'upload
+
+Dans le moniteur série (115200 baud), vous devriez voir :
+```
+OK
+WIFI Module Initialized
+Connected to WiFi
+IP: 192.168.1.XXX
+Connecting to MQTT...
+MQTT connected!
+Publishing: /temperature 22.5
+Publishing: /Humidite 45.2
+...
+```
+
+#### Dépannage Arduino IDE
+
+**Problème : "WiFi module not present"**
+- Vérifier la configuration SPI (lignes `SPIClass` et `WiFiClass`)
+- Vérifier que la carte est bien sélectionnée
+
+**Problème : Erreur de compilation**
+- Vérifier que toutes les bibliothèques sont installées
+- Tools → Board → Boards Manager → Réinstaller "STM32 MCU based boards"
+
+**Problème : Port COM non visible**
+- Installer le driver STLink : https://www.st.com/en/development-tools/stsw-link009.html
+- Vérifier dans Gestionnaire de périphériques (Device Manager)
+
+---
+
+### 5️⃣ Test du Système Complet
+
+#### Ordre de démarrage recommandé
+
+1. ✅ **Mosquitto MQTT Broker** (service ou terminal)
+   ```powershell
+   net start mosquitto
+   # OU en ligne de commande
+   cd "C:\Program Files\mosquitto"
+   mosquitto.exe -c mosquitto.conf -v
+   ```
+
+2. ✅ **Node-RED**
+   ```powershell
+   node-red
+   # Attendre le message: Server now running at http://127.0.0.1:1880/
+   ```
+
+3. ✅ **MongoDB Atlas** (déjà en ligne - service cloud)
+
+4. ✅ **STM32** 
+   - Brancher la carte via USB
+   - Uploader le code depuis Arduino IDE
+   - Ouvrir le Serial Monitor (115200 baud)
+
+#### Vérifications étape par étape
+
+**1. Mosquitto fonctionne correctement** :
+```powershell
+# Vérifier que le port 1883 est en écoute
+netstat -an | findstr 1883
+# Doit afficher: TCP 0.0.0.0:1883 ... LISTENING
+```
+
+**Test MQTT en local** :
+```powershell
+# Terminal 1 - Subscribe
+cd "C:\Program Files\mosquitto"
+mosquitto_sub.exe -h localhost -t "#" -v
+
+# Terminal 2 - Publish (dans un autre terminal)
+cd "C:\Program Files\mosquitto"
+mosquitto_pub.exe -h localhost -t "/test" -m "Hello"
+```
+
+**2. Node-RED fonctionne** :
+- ✅ Ouvrir http://localhost:1880 (éditeur Node-RED)
+- ✅ Ouvrir http://localhost:1880/ui (dashboard)
+- ✅ Vérifier que tous les nœuds MQTT sont connectés (point vert sous les nœuds)
+- ✅ Pas de messages d'erreur dans le panneau Debug
+
+**Configuration des nœuds MQTT dans Node-RED** :
+- Server : `localhost` ou `127.0.0.1`
+- Port : `1883`
+- Topics : `/temperature`, `/Humidite`, `/Pression`, etc.
+
+**3. STM32 connecté et fonctionnel** :
+
+Ouvrir le **Serial Monitor** dans Arduino IDE (Tools → Serial Monitor, 115200 baud).
+
+Séquence de démarrage attendue :
+```
+OK
+WIFI Module Initialized
+es-wifi module MAC Address: XX:XX:XX:XX:XX:XX
+Connected to SSID: VotreSsid
+IP Address: 192.168.1.XXX
+Connecting to MQTT broker at 192.168.1.100:1883...
+MQTT connected!
+
+Publishing: /temperature 22.5
+Publishing: /Humidite 45.3
+Publishing: /Pression 1013.2
+Publishing: /Accelero_X 12
+...
+```
+
+**4. Données reçues dans Node-RED** :
+
+Dans Node-RED, aller dans le panneau **Debug** (icône insecte à droite).
+Vous devriez voir les messages MQTT arriver :
+```
+/temperature : 22.5
+/Humidite : 45.3
+/Pression : 1013.2
+/Accelero_X : 12
+...
+```
+
+**5. Dashboard affiche les données** :
+
+Ouvrir http://localhost:1880/ui
+
+Vérifier :
+- ✅ Page "Weather" : Jauges de température, humidité, pression se mettent à jour
+- ✅ Page "My Dashboard" : Graphiques temps réel affichent les courbes
+- ✅ Page "Capteurs Inertiels" : Données d'accéléromètre, gyroscope, magnétomètre
+
+**6. Données dans MongoDB Atlas** :
+
+1. Aller sur https://cloud.mongodb.com
+2. Se connecter à votre compte
+3. Clusters → Browse Collections
+4. Sélectionner : `iot_sensors` → `sensor_data`
+5. Vérifier la présence de documents récents avec timestamp actuel
+
+Exemple de document :
+```json
+{
+  "_id": ObjectId("..."),
+  "timestamp": ISODate("2026-01-05T10:30:00.000Z"),
+  "sensor_type": "temperature",
+  "topic": "/temperature",
+  "value": 22.5,
+  "unit": "°C",
+  "device_id": "STM32-B-L475-IOT01A2"
+}
+```
 </div>
