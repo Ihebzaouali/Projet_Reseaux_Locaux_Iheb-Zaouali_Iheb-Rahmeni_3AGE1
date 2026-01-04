@@ -440,7 +440,7 @@ mosquitto_sub -h 192.168.0.135 -t "#" -v
 ## 📦 Structure du Dépôt
 
 ```
-projet-iot-stm32-mqtt-nodered/
+Projet_Reseaux_Locaux_Iheb-Zaouali_Iheb-Rahmeni_3AGE1/
 ├── README.md                    # Documentation complète
 ├── src/
 │   ├── stm32_mqtt_sensors.ino  # Code Arduino
@@ -448,8 +448,6 @@ projet-iot-stm32-mqtt-nodered/
 ├── node-red/
 │   ├── flows.json              # Export Node-RED
 │   └── Readme
-├── mongodb/
-│   └── sample_queries.js       # Requêtes exemples
 ├── docs/
 │   ├── images/                 # Captures d'écran
 │   └── video/                  # Vidéo démo
