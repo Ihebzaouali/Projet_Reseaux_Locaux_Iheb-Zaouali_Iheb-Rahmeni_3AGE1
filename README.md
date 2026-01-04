@@ -362,6 +362,7 @@ client.publish("/temperature", string_MQTT);
 
 ### Vidéo Complète (5 minutes)
 https://drive.google.com/file/d/1zKm94fT9ZjzvXOuhjBy3DmTO7Od-CmaY/view?usp=sharing
+
 La vidéo de démonstration montre :
 
 1. **Code Arduino** (45s) : IDE, code source, fonctions principales
