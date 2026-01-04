@@ -456,13 +456,6 @@ Projet_Reseaux_Locaux_Iheb-Zaouali_Iheb-Rahmeni_3AGE1/
     └── Readme
 ```
 
-### Dashboard ne s'affiche pas
-
-- URL correcte : http://localhost:1880/ui
-- Vérifier : `npm list node-red-dashboard`
-
----
-
 ## 📞 Contact
 
 **Auteurs** :  
