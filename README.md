@@ -248,16 +248,6 @@ client.begin("VOTRE_IP_BROKER", net);
 
 5. **Uploader** le code
 
-### Configuration MongoDB
-
-```bash
-mongosh
-use iot_sensors
-db.createCollection("sensor_data")
-db.sensor_data.createIndex({ "timestamp": -1 })
-db.sensor_data.createIndex({ "sensor_type": 1 })
-```
-
 ---
 
 ## 📱 Dashboard
@@ -303,39 +293,7 @@ Grille 3×3 de graphiques :
   "topic": "/temperature",
   "value": 22.3,
   "unit": "°C",
-  "device_id": "STM32-B-L475-IOT01A2"
 }
-```
-
-### Requêtes Utiles
-
-**Dernières lectures** :
-```javascript
-db.sensor_data.find().sort({timestamp: -1}).limit(10)
-```
-
-**Statistiques par capteur** :
-```javascript
-db.sensor_data.aggregate([
-  {
-    $group: {
-      _id: "$sensor_type",
-      count: { $sum: 1 },
-      avg_value: { $avg: "$value" },
-      min_value: { $min: "$value" },
-      max_value: { $max: "$value" }
-    }
-  }
-])
-```
-
-**Données des dernières 24h** :
-```javascript
-db.sensor_data.find({
-  timestamp: {
-    $gte: new Date(Date.now() - 24*60*60*1000)
-  }
-})
 ```
 
 ---
@@ -421,13 +379,6 @@ La vidéo de démonstration montre :
 mosquitto_sub -h 192.168.0.135 -t "#" -v
 ```
 
-**Monitorer MongoDB** :
-```bash
-mongosh
-use iot_sensors
-db.sensor_data.find().sort({timestamp:-1}).limit(5).pretty()
-```
-
 ---
 
 ## 🎓 Conclusion
@@ -491,16 +442,19 @@ db.sensor_data.find().sort({timestamp:-1}).limit(5).pretty()
 projet-iot-stm32-mqtt-nodered/
 ├── README.md                    # Documentation complète
 ├── src/
-│   └── stm32_mqtt_sensors.ino  # Code Arduino
+│   ├── stm32_mqtt_sensors.ino  # Code Arduino
+│   └── Readme
 ├── node-red/
-│   └── flows.json              # Export Node-RED
+│   ├── flows.json              # Export Node-RED
+│   └── Readme
 ├── mongodb/
 │   └── sample_queries.js       # Requêtes exemples
 ├── docs/
 │   ├── images/                 # Captures d'écran
 │   └── video/                  # Vidéo démo
 └── config/
-    └── mosquitto.conf          # Config MQTT
+    ├── mosquitto.conf          # Config MQTT
+    └── Readme
 ```
 
 ---
@@ -524,13 +478,6 @@ npm install
 node-red
 ```
 
-### MongoDB connection error
-
-```bash
-sudo systemctl restart mongodb
-sudo netstat -tulpn | grep 27017
-```
-
 ### Dashboard ne s'affiche pas
 
 - URL correcte : http://localhost:1880/ui
@@ -541,10 +488,8 @@ sudo netstat -tulpn | grep 27017
 ## 📞 Contact
 
 **Auteurs** :  
-- Iheb Zaouali : iheb.zaouali@enit.utm.tn  
-- Iheb Rahmeni : iheb.rahmeni@enit.utm.tn
-
-**GitHub Issues** : [Créer une issue](../../issues)
+- Iheb Zaouali : iheb.zaouali@etudiant-enit.utm.tn  
+- Iheb Rahmeni : iheb.rahmeni@etudiant-enit.utm.tn
 
 ---
 
@@ -558,7 +503,6 @@ Utilisation libre pour fins éducatives et de recherche.
 ## 🙏 Remerciements
 
 - Dr. Khaled Jelassi (encadrement)
-- ENIT (matériel et infrastructure)
 - Communauté Arduino et Node-RED
 - STMicroelectronics (BSP drivers)
 
@@ -580,7 +524,5 @@ Utilisation libre pour fins éducatives et de recherche.
 [![ENIT](https://img.shields.io/badge/ENIT-Tunis-blue)](http://www.enit.rnu.tn/)
 [![IoT](https://img.shields.io/badge/IoT-Project-green)]()
 [![STM32](https://img.shields.io/badge/STM32-L475E-orange)]()
-
-**⭐ N'oubliez pas de mettre une étoile si ce projet vous a été utile !**
 
 </div>
