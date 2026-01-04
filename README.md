@@ -456,27 +456,6 @@ Projet_Reseaux_Locaux_Iheb-Zaouali_Iheb-Rahmeni_3AGE1/
     └── Readme
 ```
 
----
-
-## 🐛 Dépannage
-
-### WiFi module not present
-
-```cpp
-// Vérifier configuration SPI
-SPIClass SPI_3(PC12, PC11, PC10);
-WiFiClass WiFi(&SPI_3, PE0, PE1, PE8, PB13);
-```
-
-### Node-RED ne démarre pas
-
-```bash
-rm -rf ~/.node-red/node_modules
-cd ~/.node-red
-npm install
-node-red
-```
-
 ### Dashboard ne s'affiche pas
 
 - URL correcte : http://localhost:1880/ui
