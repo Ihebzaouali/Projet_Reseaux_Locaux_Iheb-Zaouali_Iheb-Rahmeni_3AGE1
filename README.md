@@ -554,7 +554,8 @@ Utilisation libre pour fins éducatives et de recherche.
 - [STM32L4 Reference Manual](https://www.st.com/resource/en/reference_manual/dm00083560.pdf)
 - [MQTT Protocol Specification](https://mqtt.org/mqtt-specification/)
 - [Node-RED Documentation](https://nodered.org/docs/)
-- [MongoDB Manual](https://docs.mongodb.com/manual/)
+- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
+- [Mosquitto Windows Setup](https://mosquitto.org/download/)
 
 ---
 
@@ -567,6 +568,3 @@ Utilisation libre pour fins éducatives et de recherche.
 [![STM32](https://img.shields.io/badge/STM32-L475E-orange)]()
 
 </div>
-
-
-
