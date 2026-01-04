@@ -281,7 +281,7 @@ Grille 3×3 de graphiques :
 ### Structure MongoDB
 
 **Base** : `iot_sensors`  
-**Collection** : `sensor_data`
+**Collection** : `sensors_data`
 
 ### Schéma de Document
 
