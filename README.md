@@ -9,7 +9,7 @@
 
 **Projet de Réseaux Locaux - ENIT 2026**
 
-[📹 Vidéo Démo](#-vidéo-de-démonstration) • [📖 Documentation](#-table-des-matières) • [🚀 Installation](#-installation-rapide)
+ [📖 Documentation](#-table-des-matières) • [🚀 Installation](#-installation-rapide)
 
 </div>
 
