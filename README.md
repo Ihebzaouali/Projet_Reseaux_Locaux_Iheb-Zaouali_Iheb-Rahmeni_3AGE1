@@ -437,7 +437,7 @@ La vidéo de démonstration montre :
 
 1. **Code Arduino** (45s) : IDE, code source, fonctions principales
 2. **Connexion** (1min) : WiFi, MQTT, moniteur série
-3. **Acquisition** (45s) : Valeurs en temps réel des 12 capteurs
+3. **Acquisition** (45s) : Valeurs en temps réel des 6 capteurs
 4. **Node-RED** (45s) : 3 flows, nœuds actifs, MongoDB
 5. **Dashboard** (1min15) : 3 pages, jauges, graphiques
 6. **MongoDB** (30s) : Requêtes, documents, statistiques
