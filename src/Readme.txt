@@ -9,7 +9,7 @@ Ouvrir le fichier "stm32_mqtt_sensors.ino" puis exécuter le code
 ------Tests :
 1)
 Terminal : (cmd en tant qu'administrateur) 
-cd \Users\ihebz\Desktop\mosquitto> netstat -an | findstr :1883  
+cd \Users\ihebz\Desktop\mosquitto> netstat -an | findstr :1883 (Vérifier que Mosquitto écoute sur le port 1883 )  # Doit afficher: TCP 0.0.0.0:1883 ... LISTENING
 ipconfig 
 ping 192.168.0.135 ( Adresse IP WIFI PC - Broker local )
 ping 192.168.0.22 ( Adresse IP du carte ) 
